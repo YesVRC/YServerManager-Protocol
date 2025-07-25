@@ -3,9 +3,14 @@ syntax = "proto3";
 package generated;
 option go_package = "github.com/YesVRC/YServerManager-Protocol/auth";
 
-message Test {
-  string name = 1;
-  string hash = 2;
+import "google/protobuf/timestamp.proto";
+
+message User {
+  int32 id = 1;
+  string username = 2;
+  repeated string tags = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
 }
 
 message Authenticate {
