@@ -7,3 +7,8 @@ message Test {
   string name = 1;
   string hash = 2;
 }
+
+message Authenticate {
+  string access_token = 1;
+  string refresh_token = 2;
+}
