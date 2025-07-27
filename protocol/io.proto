@@ -1,0 +1,34 @@
+﻿syntax = "proto3";
+
+package generated;
+option go_package = "github.com/YesVRC/YServerManager-Protocol/io";
+
+message File {
+  string path = 1;
+  string data = 2;
+}
+
+message GetFileRequest {
+  int32 version = 1;
+  repeated string paths = 2;
+}
+
+message GetFileResponse {
+  int32 version = 1;
+  repeated File data = 2;
+}
+
+message ReplaceFileRequest {
+  int32 version = 1;
+  repeated File paths = 2;
+}
+
+message ReplaceFileResponse {
+  int32 version = 1;
+  repeated bool success = 2;
+}
+
+service IO {
+  rpc GetFiles(GetFileRequest) returns (GetFileResponse);
+  rpc ReplaceFiles(ReplaceFileRequest) returns (ReplaceFileResponse);
+}

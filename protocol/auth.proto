@@ -13,6 +13,15 @@ message User {
   google.protobuf.Timestamp updated_at = 5;
 }
 
+service Auth {
+  rpc GetUser (GetUserParams) returns (User);
+};
+
+message GetUserParams {
+  optional int32 id = 1;
+  optional string username = 2;
+}
+
 message Authenticate {
   string access_token = 1;
   string refresh_token = 2;
